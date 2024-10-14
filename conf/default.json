@@ -1,0 +1,16 @@
+{
+  "deposits": {
+    "categories": [],
+    "overrides": {
+      "gas": "gas"
+    },
+    "mappings": {"gas":"gas"}
+  },
+  "withdraws":{
+    "categories": [],
+    "overrides": {
+      "gas": "gas"
+    },
+    "mappings": {"gas":"gas"}
+  }
+}
