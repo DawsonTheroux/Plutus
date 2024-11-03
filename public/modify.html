@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Plutus</title>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"></link>
+  </head>
+  <body onload="refresh_list('withdraws'); refresh_list('deposits')">
+    <h1>Modify config: "{{ conf_name }}"</h1>
+    <h2>Withdraw Categories</h2>
+    <div id="withdraws-div">
+    </div>
+    <input id=withdraws-input></input>
+    <button onclick="add_category('withdraws'); refresh_list('withdraws')">Add Withdraw Category</button>
+    <h2>Deposit Categories</h2>
+    <div id="deposits-div">
+    </div>
+    <div>
+      <input id=deposits-input></input>
+      <button onclick="add_category('deposits'); refresh_list('deposits')">Add Deposit Category</button>
+      
+    </div>
+
+    <div id="config-div" style="display: none;">{{ config_string }}</div>
+    <button onclick="finish_config('{{ conf_name }}')">Finish</button>
+  </body>
+</html>

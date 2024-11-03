@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Plutus</title>
+    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"></link>
+  </head>
+  <body>
+    <h1>Select a Budgeting Configuration</h1>
+    <div class="button-container">
+      <select id="config-select" onchange="select_config()">
+        <option value="">Select a file</option>
+          {% for filename in conf_file_data.keys() %}
+            <option value="{{ filename }}">{{ filename }}</option>
+          {% endfor %}
+        </option>
+      </select>
+
+
+      <a id="modify-button" href="#" class="button-link">
+        <button disabled>Modify</button>
+      </a>
+
+      <a id="use-config-button" href="#" class="button-link">
+        <button disabled>Use</button>
+      </a>
+
+      <a id="create-new-button" class="button-link" onclick="create_new_config()">
+        <button>New</button>
+      </a>
+
+    </div>
+    <div>
+      <!-- Hidden div for file content -->
+      <div id="file-content" style="display: none;">
+        <h2>Configuration:</h2>
+        <pre id="content"></pre>
+      </div>
+    <!-- Hidden data for all file contents -->
+    {% for filename, content in conf_file_data.items() %}
+      <div id="file-{{ filename }}" style="display: none;">{{ content }}</div>
+    {% endfor %}
+    </div>
+  </body>
+</html>

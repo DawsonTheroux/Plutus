@@ -70,7 +70,7 @@ class Plutus:
     def categorize(self):
         print(self.user_config)
         mappings = self.user_config["withdraws"]["mappings"]
-        self.df_withdraws = self.df_deposits.assign(Category=self.df_withdraws["StoreNames"].map(mappings))
+        self.df_withdraws = self.df_withdraws.assign(Category=self.df_withdraws["StoreNames"].map(mappings))
         mappings = self.user_config["deposits"]["mappings"]
         self.df_deposits = self.df_deposits.assign(Category=self.df_deposits["StoreNames"].map(mappings))
 

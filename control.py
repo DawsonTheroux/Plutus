@@ -3,12 +3,13 @@ import json
 import numpy as np
 from plutus import Plutus
 
-INPUT_FILE = "data/long.csv"
+INPUT_FILE = "data/statement.csv"
 
 def get_user_config():
     print("\n---SELECT CONFIG (or create new)---")
     print(f" {[filename.split('.')[0] for filename in os.listdir('conf/') if filename != 'default.json']} - Or some new name")
     return f"{input('Which config would you like to use? ')}.json"
+
 
 def prompt_user_for_new_categories(categories):
     categories_string = "Current Categories: "
@@ -32,10 +33,6 @@ def prompt_user_fix_categories(missing_store_names, config):
         config["mappings"][store_name] = config["categories"][int(category_index)]
 
     return config 
-
-# for some reason the deposit and withdraw lists are the same. 
-I am here
-
 
 
 def main():
